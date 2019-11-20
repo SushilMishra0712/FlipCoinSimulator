@@ -1,0 +1,1 @@
+Welcome FlipCoin Simulator
