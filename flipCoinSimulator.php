@@ -111,9 +111,8 @@ for($count=0;$count<$no_of_times_flip;$count++)
     
 }
 
-$dictionary = array("HHH"=>$head_head_head,"HHT"=>$head_head_tail,"HTH"=>$head_tail_head,"THH"=>$tail_head_head,
+$dictionary_triplet = array("HHH"=>$head_head_head,"HHT"=>$head_head_tail,"HTH"=>$head_tail_head,"THH"=>$tail_head_head,
                     "TTH"=>$tail_tail_head,"THT"=>$tail_head_tail,"HTT"=>$head_tail_tail,"TTT"=>$tail_tail_tail);
-print_r($dictionary);
 
 $percentage_hhh = ($head_head_head/$no_of_times_flip)*100;
 echo "Percentage of HHH:".$percentage_hhh."%\n";
@@ -131,5 +130,19 @@ $percentage_htt = ($head_tail_tail/$no_of_times_flip)*100;
 echo "Percentage of HTT:".$percentage_htt."%\n";
 $percentage_ttt = ($tail_tail_tail/$no_of_times_flip)*100;
 echo "Percentage of TTT:".$percentage_ttt."%\n";
+
+arsort($dictionary_triplet);
+echo "Sorted Number of Wins\n";
+print_r($dictionary_triplet);
+$max_no_of_wins = max($dictionary_triplet);
+
+foreach($dictionary_triplet as $combination=>$value)
+{
+    if($value==$max_no_of_wins)
+    {
+    echo "Winning Combination is:".$combination."\n";
+    echo "No of times win:".$value."\n";
+    }
+}
 
 ?>
